@@ -1,3 +1,46 @@
+// SETUP VARIABLES
+//==============================================
+var topics = ["yes", "no", "hello", "whatever", "bye"];
+var queryURL = "https://api.giphy.com/v1/stickers/search?api_key=qhJIwssGhXgwPwJP5AYWCsZ5FixhUanJ&q=yes&limit=10&offset=0&rating=G&lang=en";
+var apiKey = "qhJIwssGhXgwPwJP5AYWCsZ5FixhUanJ";
+var numResults = 10;
+
+// FUNCTIONS
+//==============================================
+function renderButtons() {
+    topics.forEach(function (element) {
+        var topicBtn = $("<button>");
+        topicBtn.addClass("topic-button  btn btn-dark");
+        topicBtn.attr("id", element);
+        topicBtn.attr("type", "button");
+        topicBtn.text(element);
+        $("#buttonDisplay").append(topicBtn);
+    })
+}
+
+
+
+
+// AJAX API 
+$.ajax({
+    url: queryURL,
+    method: "GET"
+}).then(function (response) {
+    console.log(response.data[0].images.original.url);
+    console.log(response.data.length);
+});
+
+// MAIN PROCESSES
+//==============================================
+
+// displayGifs() - Function that shows all the images on still mode to page
+
+
+
+renderButtons();
+
+
+
 // PSEUDOCODE
 // =============================
 // When User Loads the page:
@@ -20,46 +63,3 @@
 // Set Up API Connection. - DONE
 // Generate loop that adds buttons from array to page. - DONE
 // Create function that allows user to add more buttons to array.
-
-
-// SETUP VARIABLES
-//==============================================
-var topics = ["yes", "no", "hello", "whatever", "bye"];
-var queryURL = "https://api.giphy.com/v1/stickers/search?api_key=qhJIwssGhXgwPwJP5AYWCsZ5FixhUanJ&q=yes&limit=10&offset=0&rating=G&lang=en";
-var apiKey = "qhJIwssGhXgwPwJP5AYWCsZ5FixhUanJ";
-var numResults = 10;
-
-// FUNCTIONS
-//==============================================
-function renderButtons() {
-    topics.forEach(function (element) {
-        var topicBtn = $("<button>");
-        topicBtn.addClass("topic-button  btn btn-dark");
-        topicBtn.attr("id", element);
-        topicBtn.attr("type", "button");
-        topicBtn.text(element);
-        $("#buttonDisplay").append(topicBtn);
-    })
-}
-
-// AJAX API 
-$.ajax({
-    url: queryURL,
-    method: "GET"
-}).then(function (response) {
-    console.log(response.data[0].images.original.url);
-    console.log(response.data.length);
-});
-
-// renderButtons() - Checks items in array and creates buttons for each. 
-
-
-
-// MAIN PROCESSES
-//==============================================
-
-// displayGifs() - Function that shows all the images on still mode to page
-
-
-
-renderButtons();
