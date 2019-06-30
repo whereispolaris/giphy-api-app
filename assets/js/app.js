@@ -20,16 +20,30 @@
 // Set Up API Connection
 
 
+
+
 // Create an array of strings, each one related to a topic that interests you. Save it to a variable called topics.
 
 // SETUP VARIABLES
 //==============================================
-var topics = [];
-
+var topics = ["yes", "no", "hello", "whatever", "bye"];
+var queryURL = "https://giphy.com";
+var apiKey = "";
+var numResults = 10;
 // FUNCTIONS
 //==============================================
 
+// AJAX API 
+$.ajax({
+    url: queryURL;
+    method: "GET"
+}).then(function (giphyData) {
+    console.log(giphyData);
+});
+
 // renderButtons() - Checks items in array and creates buttons for each. 
+
+
 
 // MAIN PROCESSES
 //==============================================
