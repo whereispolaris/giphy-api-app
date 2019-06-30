@@ -4,7 +4,7 @@
 // - 10 buttons in a certain category (e.g. animals) will display on the page. 
 // - When User Clicks on one of the button:
 //      * An API call will be made to Giphy API with the value of the button (e.g. skunk)
-//      * The response will generate 10 images STILL images to display on the page.
+//      * The response will generate 10 images STILL images to display on the page along with the rating.
 // - When User Clicks on one of the still images:
 //      *  The image will animate.
 //      * If the image is clicked again, it will stop animating.
