@@ -16,9 +16,10 @@
 
 
 // TO DO
-// Buil Static Components first. 
-// Set Up API Connection.
-// Generate loop that adds buttons from array to page.
+// Buil Static Components first. - DONE
+// Set Up API Connection. - DONE
+// Generate loop that adds buttons from array to page. - DONE
+// Create function that allows user to add more buttons to array.
 
 
 // SETUP VARIABLES
@@ -30,6 +31,16 @@ var numResults = 10;
 
 // FUNCTIONS
 //==============================================
+function renderButtons() {
+    topics.forEach(function (element) {
+        var topicBtn = $("<button>");
+        topicBtn.addClass("topic-button  btn btn-dark");
+        topicBtn.attr("id", element);
+        topicBtn.attr("type", "button");
+        topicBtn.text(element);
+        $("#buttonDisplay").append(topicBtn);
+    })
+}
 
 // AJAX API 
 $.ajax({
@@ -37,6 +48,7 @@ $.ajax({
     method: "GET"
 }).then(function (response) {
     console.log(response.data[0].images.original.url);
+    console.log(response.data.length);
 });
 
 // renderButtons() - Checks items in array and creates buttons for each. 
@@ -47,3 +59,7 @@ $.ajax({
 //==============================================
 
 // displayGifs() - Function that shows all the images on still mode to page
+
+
+
+renderButtons();
