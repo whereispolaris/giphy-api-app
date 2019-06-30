@@ -1,3 +1,4 @@
+"use strict";
 // SETUP VARIABLES
 //==============================================
 var topics = ["yes", "no", "hello", "whatever", "bye"];
@@ -8,6 +9,7 @@ var numResults = 10;
 // FUNCTIONS
 //==============================================
 function renderButtons() {
+    $("#buttonDisplay").empty();
     topics.forEach(function (element) {
         var topicBtn = $("<button>");
         topicBtn.addClass("topic-button  btn btn-dark");
@@ -17,7 +19,6 @@ function renderButtons() {
         $("#buttonDisplay").append(topicBtn);
     })
 }
-
 
 
 
@@ -32,6 +33,16 @@ $.ajax({
 
 // MAIN PROCESSES
 //==============================================
+$("#add-button").on("click", function () {
+    var value = $("#topic-value").val().trim();
+    console.log(value);
+    topics.push(value);
+    renderButtons()
+    return false;
+
+});
+
+
 
 // displayGifs() - Function that shows all the images on still mode to page
 
@@ -62,4 +73,5 @@ renderButtons();
 // Buil Static Components first. - DONE
 // Set Up API Connection. - DONE
 // Generate loop that adds buttons from array to page. - DONE
-// Create function that allows user to add more buttons to array.
+// Create function that allows user to add more buttons to array. - DONE
+// Add localStorage feature to the buttons.
