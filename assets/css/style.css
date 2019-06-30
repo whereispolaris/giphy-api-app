@@ -1,0 +1,20 @@
+#buttonDisplay {
+    padding: 20px;
+}
+
+button {
+    margin: 5px;
+}
+
+.jumbotron {
+    padding: 20px;
+}
+
+.container-fluid {
+    margin-top: -33px;
+}
+
+.giphy {
+    width: 22%;
+    margin: 5%;
+}
