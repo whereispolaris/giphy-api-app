@@ -17,28 +17,26 @@
 
 // TO DO
 // Buil Static Components first. 
-// Set Up API Connection
+// Set Up API Connection.
+// Generate loop that adds buttons from array to page.
 
-
-
-
-// Create an array of strings, each one related to a topic that interests you. Save it to a variable called topics.
 
 // SETUP VARIABLES
 //==============================================
 var topics = ["yes", "no", "hello", "whatever", "bye"];
-var queryURL = "https://giphy.com";
-var apiKey = "";
+var queryURL = "https://api.giphy.com/v1/stickers/search?api_key=qhJIwssGhXgwPwJP5AYWCsZ5FixhUanJ&q=yes&limit=10&offset=0&rating=G&lang=en";
+var apiKey = "qhJIwssGhXgwPwJP5AYWCsZ5FixhUanJ";
 var numResults = 10;
+
 // FUNCTIONS
 //==============================================
 
 // AJAX API 
 $.ajax({
-    url: queryURL;
+    url: queryURL,
     method: "GET"
-}).then(function (giphyData) {
-    console.log(giphyData);
+}).then(function (response) {
+    console.log(response.data[0].images.original.url);
 });
 
 // renderButtons() - Checks items in array and creates buttons for each. 
