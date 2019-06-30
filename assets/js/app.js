@@ -13,3 +13,25 @@
 //      * A button will generate and be added to the buttons (in an Array).
 // Bonus:
 //  - If page is refreshed, the added buttons will remain on the page.
+
+
+// TO DO
+// Buil Static Components first. 
+// Set Up API Connection
+
+
+// Create an array of strings, each one related to a topic that interests you. Save it to a variable called topics.
+
+// SETUP VARIABLES
+//==============================================
+var topics = [];
+
+// FUNCTIONS
+//==============================================
+
+// renderButtons() - Checks items in array and creates buttons for each. 
+
+// MAIN PROCESSES
+//==============================================
+
+// displayGifs() - Function that shows all the images on still mode to page
