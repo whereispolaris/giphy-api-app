@@ -2,8 +2,8 @@
 // SETUP VARIABLES
 //==============================================
 var topics = ["yes", "no", "hello", "whatever", "bye"];
-var queryURL = "https://api.giphy.com/v1/stickers/search?api_key=qhJIwssGhXgwPwJP5AYWCsZ5FixhUanJ&q=yes&limit=10&offset=0&rating=G&lang=en";
 var apiKey = "qhJIwssGhXgwPwJP5AYWCsZ5FixhUanJ";
+var queryURL = "https://api.giphy.com/v1/stickers/search?api_key=" + apiKey;
 var numResults = 10;
 var topicSelected;
 
@@ -23,18 +23,32 @@ function renderButtons() {
 
 }
 
+
 //Function that shows all the images on still mode to page
 
-
-
 // AJAX API 
-$.ajax({
-    url: queryURL,
-    method: "GET"
-}).then(function (response) {
-    console.log(response.data[0].images.original.url);
-    console.log(response.data.length);
-});
+function runQuery(queryURL) {
+
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function (response) {
+        $("#gifDisplay").empty();
+        for (var i = 0; i < numResults; i++) {
+            console.log(response.data[i].images.original.url);
+            console.log(response.data.length);
+            var image = $("<img>");
+            image.attr("src", response.data[i].images.original.url);
+
+            $("#gifDisplay").append(image);
+            // status = still/animate
+            // data-still = still image
+            // data-animate = animated image
+        }
+    });
+}
+
+
 
 // MAIN PROCESSES
 //==============================================
@@ -53,11 +67,16 @@ $("#add-button").on("click", function () {
 $(document).on("click", ".topic-button", function (event) {
     event.preventDefault();
     topicSelected = $(this).attr("data-topic");
-    console.log(topicSelected);
+    var newURL = queryURL + "&q=" + topicSelected
+    console.log(newURL);
+    newURL = newURL + "&limit" + numResults;
+    runQuery(newURL);
 
 });
 
 renderButtons();
+
+
 
 // PSEUDOCODE
 // =============================
@@ -81,7 +100,7 @@ renderButtons();
 // Set Up API Connection. - DONE
 // Generate loop that adds buttons from array to page. - DONE
 // Create function that allows user to add more buttons to array. - DONE
-// Makse successfull API call with button. 
+// Makse successfull API call with button.  
 //  - Review API activities
 //  - REVIEW API ACTIVITIES
 //  - Create button onclick event
