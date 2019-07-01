@@ -23,7 +23,6 @@ function renderButtons() {
 
 }
 
-
 //Function that shows all the images on still mode to page
 
 // AJAX API 
@@ -47,8 +46,6 @@ function runQuery(queryURL) {
         }
     });
 }
-
-
 
 // MAIN PROCESSES
 //==============================================
@@ -76,8 +73,6 @@ $(document).on("click", ".topic-button", function (event) {
 
 renderButtons();
 
-
-
 // PSEUDOCODE
 // =============================
 // When User Loads the page:
@@ -96,13 +91,9 @@ renderButtons();
 
 
 // TO DO
-// Buil Static Components first. - DONE
-// Set Up API Connection. - DONE
-// Generate loop that adds buttons from array to page. - DONE
-// Create function that allows user to add more buttons to array. - DONE
-// Makse successfull API call with button.  
-//  - Review API activities
-//  - REVIEW API ACTIVITIES
-//  - Create button onclick event
-
+//==============
+// Create Div that contains each gif and:
+// - Add rating to image
+// - Add Still/Animate URLs as data
+// - Create contitions to animate/pause
 // Add localStorage feature to the buttons.
