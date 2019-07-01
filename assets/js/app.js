@@ -5,6 +5,7 @@ var topics = ["yes", "no", "hello", "whatever", "bye"];
 var queryURL = "https://api.giphy.com/v1/stickers/search?api_key=qhJIwssGhXgwPwJP5AYWCsZ5FixhUanJ&q=yes&limit=10&offset=0&rating=G&lang=en";
 var apiKey = "qhJIwssGhXgwPwJP5AYWCsZ5FixhUanJ";
 var numResults = 10;
+var topicSelected;
 
 // FUNCTIONS
 //==============================================
@@ -13,7 +14,7 @@ function renderButtons() {
     $("#buttonDisplay").empty();
     topics.forEach(function (element) {
         var topicBtn = $("<button>");
-        topicBtn.addClass("topic-button  btn btn-dark");
+        topicBtn.addClass("topic-button");
         topicBtn.attr("data-topic", element);
         topicBtn.attr("type", "button");
         topicBtn.text(element);
@@ -49,14 +50,12 @@ $("#add-button").on("click", function () {
 });
 
 // Event to display Gifs to the page
-$("#yes").click(function (event) {
+$(document).on("click", ".topic-button", function (event) {
     event.preventDefault();
     topicSelected = $(this).attr("data-topic");
     console.log(topicSelected);
 
 });
-
-
 
 renderButtons();
 
@@ -86,6 +85,5 @@ renderButtons();
 //  - Review API activities
 //  - REVIEW API ACTIVITIES
 //  - Create button onclick event
-
 
 // Add localStorage feature to the buttons.
