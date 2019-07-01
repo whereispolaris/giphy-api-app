@@ -8,17 +8,21 @@ var numResults = 10;
 
 // FUNCTIONS
 //==============================================
+// Display buttons on the page
 function renderButtons() {
     $("#buttonDisplay").empty();
     topics.forEach(function (element) {
         var topicBtn = $("<button>");
         topicBtn.addClass("topic-button  btn btn-dark");
-        topicBtn.attr("id", element);
+        topicBtn.attr("data-topic", element);
         topicBtn.attr("type", "button");
         topicBtn.text(element);
         $("#buttonDisplay").append(topicBtn);
-    })
+    });
+
 }
+
+//Function that shows all the images on still mode to page
 
 
 
@@ -33,6 +37,8 @@ $.ajax({
 
 // MAIN PROCESSES
 //==============================================
+
+// Event to Add more buttons to page
 $("#add-button").on("click", function () {
     var value = $("#topic-value").val().trim();
     console.log(value);
@@ -42,15 +48,17 @@ $("#add-button").on("click", function () {
 
 });
 
+// Event to display Gifs to the page
+$("#yes").click(function (event) {
+    event.preventDefault();
+    topicSelected = $(this).attr("data-topic");
+    console.log(topicSelected);
 
-
-// displayGifs() - Function that shows all the images on still mode to page
+});
 
 
 
 renderButtons();
-
-
 
 // PSEUDOCODE
 // =============================
@@ -74,4 +82,10 @@ renderButtons();
 // Set Up API Connection. - DONE
 // Generate loop that adds buttons from array to page. - DONE
 // Create function that allows user to add more buttons to array. - DONE
+// Makse successfull API call with button. 
+//  - Review API activities
+//  - REVIEW API ACTIVITIES
+//  - Create button onclick event
+
+
 // Add localStorage feature to the buttons.
