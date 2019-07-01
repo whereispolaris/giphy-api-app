@@ -14,7 +14,7 @@ function renderButtons() {
     $("#buttonDisplay").empty();
     topics.forEach(function (element) {
         var topicBtn = $("<button>");
-        topicBtn.addClass("topic-button");
+        topicBtn.addClass("topic-button btn btn-dark");
         topicBtn.attr("data-topic", element);
         topicBtn.attr("type", "button");
         topicBtn.text(element);
