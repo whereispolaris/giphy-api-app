@@ -79,7 +79,7 @@ $(document).on("click", ".topic-button", function (event) {
     event.preventDefault();
     topicSelected = $(this).attr("data-topic");
     var newURL = queryURL + "&q=" + topicSelected
-    newURL = newURL + "&limit" + numResults;
+    newURL = newURL + "&limit=" + numResults;
     runQuery(newURL);
 
 });
@@ -87,7 +87,7 @@ $(document).on("click", ".topic-button", function (event) {
 $(document).on("click", ".giphy", function (event) {
     event.preventDefault();
     var giphy = $(this);
-    var status = giphy.data("state");
+    var status = giphy.attr("data-state");
     if (status === "still") {
         giphy.attr({
             src: giphy.data("animate"),
