@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Lato|Permanent+Marker&display=swap');
-.jumbotron h2 {
+.jumbotron h2, h4 {
     font-family: "Permanent Marker";
     letter-spacing: 5px;
+    color: black !important;
 }
 
 p,
@@ -34,7 +35,12 @@ button {
     box-shadow: 0px 0px 12px 1px rgba(46,74,117,1);
 }
 
+.alert {
+    margin: 50px auto;
+}
 
-
-
+p {
+    font-size: 20px;
+    color: black;
+}
 
