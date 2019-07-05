@@ -4,7 +4,7 @@
 var topics = ["yes", "no", "hello", "whatever", "bye"];
 var apiKey = "qhJIwssGhXgwPwJP5AYWCsZ5FixhUanJ";
 var queryURL = "https://api.giphy.com/v1/stickers/search?api_key=" + apiKey;
-var numResults = 10;
+var numResults = 10; //Create option dropdown
 var topicSelected;
 
 // FUNCTIONS
@@ -12,6 +12,7 @@ var topicSelected;
 // Display buttons on the page
 function renderButtons() {
     $("#buttonDisplay").empty();
+    // Loop that generates buttons and appends them to #buttonDisplay div
     topics.forEach(function (element) {
         var topicBtn = $("<button>");
         topicBtn.addClass("topic-button btn btn-dark");
@@ -24,40 +25,39 @@ function renderButtons() {
 }
 
 //Function that shows all the images on still mode to page
-
-// AJAX API 
 function runQuery(queryURL) {
-
+    // AJAX API call
     $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function (response) {
+        // Clear out #gifDisplay div
         $("#gifDisplay").empty();
         for (var i = 0; i < numResults; i++) {
-
             // Generates Bootstrap Card 
             var imageDiv = $("<div>");
             imageDiv.addClass("card");
             // Generates image
             var image = $("<img>");
             image.attr({
-                class: "giphy card-img-top",
-                src: response.data[i].images.original_still.url,
-                // status = still/animate
+                "class": "giphy card-img-top",
+                "src": response.data[i].images.original_still.url,
                 "data-state": "still",
-
                 "data-still": response.data[i].images.original_still.url,
                 "data-animate": response.data[i].images.original.url,
             });
+            // Create card body
             var imageBody = $("<div>");
             imageBody.addClass("card-body");
+            // Create rating element
             var rating = $("<h5>");
             rating.addClass("card-title");
             rating.text("Rating: " + response.data[i].rating);
+            // Append rating to card body
             imageBody.append(rating);
+            // Append image and card body to Bootstrap card
             imageDiv.append(image, imageBody);
             $("#gifDisplay").append(imageDiv);
-
         }
     });
 }
@@ -68,8 +68,10 @@ function runQuery(queryURL) {
 // Event to Add more buttons to page
 $("#add-button").on("click", function () {
     var value = $("#topic-value").val().trim();
+    // Add new value to topics array
     topics.push(value);
-    renderButtons()
+    console.log(topics);
+    renderButtons();
     return false;
 
 });
@@ -78,10 +80,11 @@ $("#add-button").on("click", function () {
 $(document).on("click", ".topic-button", function (event) {
     event.preventDefault();
     topicSelected = $(this).attr("data-topic");
-    var newURL = queryURL + "&q=" + topicSelected
+    // Creates new URL to append query strings. Adds topic selected.
+    var newURL = queryURL + "&q=" + topicSelected;
+    // Adds number of results to limit query
     newURL = newURL + "&limit=" + numResults;
-    runQuery(newURL);
-
+    runQuery(newURL); 
 });
 
 $(document).on("click", ".giphy", function (event) {
@@ -95,8 +98,6 @@ $(document).on("click", ".giphy", function (event) {
         });
     }
     else {
-        // THIS IS NOT WORKING
-        console.log("else");
         giphy.attr({
             src: giphy.data("still"),
             "data-state": "still"
@@ -111,5 +112,7 @@ renderButtons();
 
 // TO DO
 //==============
-// Fix REPLAY bug (lines 97-104).
+// Fix REPLAY bug (lines 97-104). - DONE
 // Add localStorage feature to the buttons.
+// Create option dropdown for user to choose 1, 5, 10 gifs results
+// Line 16 - Add object notation to attr() and remove extra code. 
