@@ -1,4 +1,14 @@
-@import url('https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lato|Permanent+Marker&display=swap');
+.jumbotron h2 {
+    font-family: "Permanent Marker";
+    letter-spacing: 5px;
+}
+
+p,
+h5 {
+    font-family: 'Lato', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
 
 #buttonDisplay {
     padding: 20px;
@@ -23,3 +33,8 @@ button {
     -moz-box-shadow: 0px 0px 12px 1px rgba(46,74,117,1);
     box-shadow: 0px 0px 12px 1px rgba(46,74,117,1);
 }
+
+
+
+
+
