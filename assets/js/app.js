@@ -7,10 +7,13 @@ var queryURL = "https://api.giphy.com/v1/stickers/search?api_key=" + apiKey;
 var numResults = 10; //Create option dropdown
 var topicSelected;
 
+
 // FUNCTIONS
 //==============================================
 // Display buttons on the page
 function renderButtons() {
+    // Not working yet
+    topics = JSON.parse(localStorage.getItem("topics"));
     $("#buttonDisplay").empty();
     // Loop that generates buttons and appends them to #buttonDisplay div
     topics.forEach(function (element) {
@@ -64,6 +67,9 @@ function runQuery(queryURL) {
 
 // MAIN PROCESSES
 //==============================================
+// Get ite array to localStogare
+localStorage.setItem("topics", JSON.stringify(topics));
+
 
 // Event to Add more buttons to page
 $("#add-button").on("click", function () {
@@ -71,6 +77,7 @@ $("#add-button").on("click", function () {
     // Add new value to topics array
     topics.push(value);
     console.log(topics);
+    localStorage.setItem("topics", JSON.stringify(topics));
     renderButtons();
     return false;
 
@@ -107,12 +114,13 @@ $(document).on("click", ".giphy", function (event) {
 
 renderButtons();
 
-
+// Not working yet
+localStorage.setItem("topics", JSON.stringify(topics));
 
 
 // TO DO
 //==============
 // Fix REPLAY bug (lines 97-104). - DONE
-// Add localStorage feature to the buttons.
+// Add localStorage feature to the buttons. - NOT WORKING YET (Lines 15, 71, 80 and 118)
 // Create option dropdown for user to choose 1, 5, 10 gifs results
 // Line 16 - Add object notation to attr() and remove extra code. 
