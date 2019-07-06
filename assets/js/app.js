@@ -3,7 +3,7 @@
 //==============================================
 var topics = ["yes", "no", "wtf", "whatever", "lol"];
 var apiKey = "qhJIwssGhXgwPwJP5AYWCsZ5FixhUanJ";
-var queryURL = "https://api.giphy.com/v1/stickers/search?api_key=" + apiKey;
+var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=" + apiKey;
 var numResults = 10; //Create option dropdown
 var topicSelected;
 
@@ -90,7 +90,8 @@ $(document).on("click", ".topic-button", function (event) {
     // Adds number of results to limit query
     newURL = newURL + "&limit=" + numResults;
     console.log(newURL);
-    runQuery(newURL); 
+
+    runQuery(newURL);
 });
 
 $(document).on("click", ".giphy", function (event) {
