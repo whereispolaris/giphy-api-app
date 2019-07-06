@@ -1,7 +1,7 @@
 "use strict";
 // SETUP VARIABLES
 //==============================================
-var topics = ["yes", "no", "wtf", "whatever", "lol"];
+var topics = ["yes", "no", "wow", "whatever", "lol"];
 var apiKey = "qhJIwssGhXgwPwJP5AYWCsZ5FixhUanJ";
 var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=" + apiKey;
 var numResults = 10; //Create option dropdown
