@@ -74,8 +74,8 @@ $("#add-button").on("click", function () {
     var value = $("#topic-value").val().trim();
     // Add new value to topics array
     topics.push(value);
+    localStorage.setItem("topics", JSON.stringify(topics));
     console.log(topics);
-    // localStorage.setItem("topics", JSON.stringify(topics));
     renderButtons();
     return false;
 
@@ -116,6 +116,7 @@ renderButtons();
 
 // Not working yet
 // localStorage.setItem("topics", JSON.stringify(topics));
+
 
 
 // TO DO
